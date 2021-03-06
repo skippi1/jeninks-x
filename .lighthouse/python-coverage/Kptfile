@@ -1,0 +1,11 @@
+apiVersion: kpt.dev/v1alpha1
+kind: Kptfile
+metadata:
+  name: python-coverage
+upstream:
+  type: git
+  git:
+    commit: 663cd1a86c2885481ff1399b6f4c3cb18c5d549e
+    repo: https://github.com/tektoncd/catalog
+    directory: /task/python-coverage/0.1
+    ref: master

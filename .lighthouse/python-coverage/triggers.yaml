@@ -1,0 +1,22 @@
+apiVersion: config.lighthouse.jenkins-x.io/v1alpha1
+kind: TriggerConfig
+metadata:
+  creationTimestamp: null
+  name: triggers
+spec:
+  postsubmits:
+  - agent: tekton-pipeline
+    branches:
+    - main
+    - master
+    context: python-coverage
+    name: python-coverage
+    source: python-coverage.yaml
+  presubmits:
+  - agent: tekton-pipeline
+    always_run: true
+    context: python-coverage
+    name: python-coverage
+    rerun_command: /python-coverage
+    source: python-coverage.yaml
+    trigger: (?m)^/python-coverage?(s+|$)
