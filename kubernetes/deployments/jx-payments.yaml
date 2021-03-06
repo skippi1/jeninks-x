@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jx-payments-deployment
+  labels:
+    app: jx-payments
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: jx-payments
+  template:
+    metadata:
+      labels:
+        app: jx-payments
+    spec:
+      containers:
+      - name: jx-payments
+        image: jx-payments:latest
+        ports:
+        - containerPort: 8080
