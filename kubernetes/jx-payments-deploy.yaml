@@ -18,7 +18,7 @@ spec:
       - name: migrate
         image: jx-payments:latest
         imagePullPolicy: Never
-        command: ['sh', '-c', 'echo The app is running! && sleep 10']
+        command: ['sh', '-c', 'python manage.py migrate']
       containers:
       - name: jx-payments
         image: jx-payments:latest
