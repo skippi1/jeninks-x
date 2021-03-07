@@ -12,6 +12,6 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: jy-payments
+            name: jx-payments
             port:
               number: 8080

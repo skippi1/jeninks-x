@@ -14,8 +14,14 @@ spec:
       labels:
         app: jx-payments
     spec:
+      initContainers:
+      - name: migrate
+        image: jx-payments:latest
+        imagePullPolicy: Never
+        command: ['sh', '-c', 'echo The app is running! && sleep 10']
       containers:
       - name: jx-payments
         image: jx-payments:latest
+        imagePullPolicy: Never
         ports:
         - containerPort: 8080
