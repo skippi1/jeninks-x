@@ -1,0 +1,25 @@
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: jx-pv
+spec:
+  accessModes:
+    - ReadWriteOnce
+  capacity:
+    storage: 5Gi
+  hostPath:
+    path: /data/jx/
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: jx-mysql-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: "" # Empty string must be explicitly set otherwise default StorageClass will be set
+  volumeName: jx-pv
+  resources:
+    requests:
+      storage: 1Gi
