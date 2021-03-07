@@ -14,11 +14,6 @@ spec:
       labels:
         app: jx-payments
     spec:
-      initContainers:
-      - name: migrate
-        image: jx-payments:latest
-        imagePullPolicy: Never
-        command: ['sh', '-c', 'python manage.py migrate']
       containers:
       - name: jx-payments
         image: jx-payments:latest
